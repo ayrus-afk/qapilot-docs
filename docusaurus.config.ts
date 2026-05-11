@@ -11,10 +11,10 @@ const config: Config = {
     v4: true,
   },
 
-  url: 'https://qapilot.github.io',
+  url: 'https://ayrus-afk.github.io',
   baseUrl: '/qapilot-docs/',
 
-  organizationName: 'qapilot',
+  organizationName: 'ayrus-afk',
   projectName: 'qapilot-docs',
   trailingSlash: false,
 
@@ -30,6 +30,21 @@ const config: Config = {
     locales: ['en'],
   },
 
+  // ── Plugins ──────────────────────────────────────────────────────────────
+  plugins: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+        language: ['en'],
+        highlightSearchTermsOnTargetPage: true,
+        searchResultLimits: 8,
+        searchBarShortcutHint: false,
+        docsRouteBasePath: '/',
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
@@ -38,7 +53,10 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           sidebarCollapsible: true,
           routeBasePath: '/',
-          editUrl: 'https://github.com/qapilot/qapilot-docs/tree/main/',
+          editUrl: 'https://github.com/ayrus-afk/qapilot-docs/tree/main/',
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: false,
+          breadcrumbs: true,
         },
         blog: false,
         theme: {
@@ -49,11 +67,27 @@ const config: Config = {
   ],
 
   themeConfig: {
+    // Announcement bar — good for flagging the site is a draft
+    announcementBar: {
+      id: 'draft_notice',
+      content:
+        '📖 This is the <strong>new QApilot documentation</strong> — currently in preview. The live docs remain at <a href="https://docs.qapilot.io" target="_blank">docs.qapilot.io</a>.',
+      backgroundColor: '#0049a8',
+      textColor: '#ffffff',
+      isCloseable: true,
+    },
+
     colorMode: {
+      defaultMode: 'light',
       respectPrefersColorScheme: true,
     },
+
+    // Algolia slot — left empty for now, local search plugin handles it
+    // algolia: { ... }
+
     navbar: {
       title: 'QApilot',
+      hideOnScroll: false,
       logo: {
         alt: 'QApilot Logo',
         src: 'img/logo.svg',
@@ -66,39 +100,74 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/qapilot/qapilot-docs',
+          label: 'Flutter Guide',
+          to: '/framework-guides/flutter/overview',
+          position: 'left',
+        },
+        {
+          label: 'Troubleshooting',
+          to: '/troubleshooting',
+          position: 'left',
+        },
+        {
+          href: 'https://qapilot.io',
+          label: 'QApilot.io',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/ayrus-afk/qapilot-docs',
           label: 'GitHub',
           position: 'right',
         },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'Documentation',
           items: [
             {label: 'Getting Started', to: '/intro'},
             {label: 'Flutter Integration Guide', to: '/framework-guides/flutter/overview'},
+            {label: 'App Upload Requirements', to: '/setup/app-upload-requirements'},
             {label: 'Troubleshooting', to: '/troubleshooting'},
           ],
         },
         {
-          title: 'Product',
+          title: 'Platform',
           items: [
-            {label: 'QApilot Website', href: 'https://qapilot.io'},
+            {label: 'Test Recording', to: '/test-recording/'},
+            {label: 'Autonomous Testing', to: '/autonomous-test-generation/'},
+            {label: 'API Automation', to: '/api-automation/'},
+            {label: 'Integrations', to: '/integrations/'},
+          ],
+        },
+        {
+          title: 'QApilot',
+          items: [
+            {label: 'Website', href: 'https://qapilot.io'},
             {label: 'Current Docs', href: 'https://docs.qapilot.io'},
+            {label: 'Status Page', href: 'https://status.qapilot.io'},
+            {label: 'GitHub', href: 'https://github.com/ayrus-afk/qapilot-docs'},
           ],
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} QApilot. Built with Docusaurus.`,
     },
+
     prism: {
       theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['dart', 'bash', 'yaml', 'json'],
+      darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['dart', 'bash', 'yaml', 'json', 'groovy', 'kotlin', 'swift'],
     },
-    algolia: undefined,
+
+    docs: {
+      sidebar: {
+        hideable: true,
+        autoCollapseCategories: true,
+      },
+    },
   } satisfies Preset.ThemeConfig,
 };
 

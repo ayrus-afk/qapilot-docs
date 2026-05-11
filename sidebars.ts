@@ -11,7 +11,7 @@ const sidebars: SidebarsConfig = {
     // ── Setup ──────────────────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Setup',
+      label: '⚙️  Setup',
       collapsed: false,
       items: [
         'setup/index',
@@ -24,10 +24,10 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
-    // ── Framework Guides (NEW) ─────────────────────────────────────────────
+    // ── Framework Guides ──────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Framework Guides',
+      label: '📱  Framework Guides',
       collapsed: false,
       items: [
         {
@@ -49,7 +49,7 @@ const sidebars: SidebarsConfig = {
     // ── Autonomous Test Generation ─────────────────────────────────────────
     {
       type: 'category',
-      label: 'Autonomous Test Generation',
+      label: '🤖  Autonomous Testing',
       items: [
         'autonomous-test-generation/index',
         'autonomous-test-generation/run-crawler',
@@ -61,7 +61,7 @@ const sidebars: SidebarsConfig = {
     // ── Test Recording ─────────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Test Recording',
+      label: '🎬  Test Recording',
       items: [
         'test-recording/index',
         'test-recording/creating-test-steps',
@@ -78,7 +78,7 @@ const sidebars: SidebarsConfig = {
     // ── API Automation ─────────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'API Automation',
+      label: '⚡  API Automation',
       items: [
         'api-automation/index',
         'api-automation/http-master',
@@ -89,7 +89,7 @@ const sidebars: SidebarsConfig = {
     // ── Test Plan Executions ───────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Test Plan Executions',
+      label: '▶️  Test Plan Executions',
       items: [
         'test-plan-executions/index',
         'test-plan-executions/test-case',
@@ -109,7 +109,7 @@ const sidebars: SidebarsConfig = {
     // ── Integrations ───────────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Integrations',
+      label: '🔗  Integrations',
       items: [
         'integrations/index',
         'integrations/project-settings',
@@ -128,7 +128,7 @@ const sidebars: SidebarsConfig = {
     // ── Reports ────────────────────────────────────────────────────────────
     {
       type: 'category',
-      label: 'Reports',
+      label: '📊  Reports',
       items: [
         'reports/index',
         'reports/dashboard',
@@ -143,14 +143,20 @@ const sidebars: SidebarsConfig = {
       ],
     },
 
-    // ── Troubleshooting (NEW) ──────────────────────────────────────────────
+    // ── Troubleshooting ────────────────────────────────────────────────────
     'troubleshooting',
 
     // ── Account ────────────────────────────────────────────────────────────
-    'user-management',
-    'account-settings',
-    'faqs',
-    'help-section',
+    {
+      type: 'category',
+      label: '👤  Account',
+      items: [
+        'user-management',
+        'account-settings',
+        'faqs',
+        'help-section',
+      ],
+    },
   ],
 };
 
