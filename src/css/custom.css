@@ -1,0 +1,47 @@
+/**
+ * QApilot documentation site — global styles
+ * Primary brand colour: #0079FF (QApilot blue)
+ *
+ * Shade scale generated from #0079FF:
+ *   darkest  #004db3  (-30% lightness)
+ *   darker   #005fcc  (-20%)
+ *   dark     #006ee6  (-10%)
+ *   base     #0079ff
+ *   light    #2b8fff
+ *   lighter  #4d9fff
+ *   lightest #80baff
+ */
+
+:root {
+  --ifm-color-primary: #0079ff;
+  --ifm-color-primary-dark: #006ee6;
+  --ifm-color-primary-darker: #005fcc;
+  --ifm-color-primary-darkest: #004db3;
+  --ifm-color-primary-light: #2b8fff;
+  --ifm-color-primary-lighter: #4d9fff;
+  --ifm-color-primary-lightest: #80baff;
+  --ifm-code-font-size: 92%;
+  --ifm-font-size-base: 16px;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 121, 255, 0.08);
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #4d9fff;
+  --ifm-color-primary-dark: #2b8fff;
+  --ifm-color-primary-darker: #0079ff;
+  --ifm-color-primary-darkest: #006ee6;
+  --ifm-color-primary-light: #80baff;
+  --ifm-color-primary-lighter: #99c8ff;
+  --ifm-color-primary-lightest: #cce4ff;
+  --docusaurus-highlighted-code-line-bg: rgba(77, 159, 255, 0.15);
+}
+
+/* Admonition (callout) tweaks */
+.alert--warning {
+  --ifm-alert-border-color: #f0a500;
+}
+
+/* Code blocks */
+.theme-code-block {
+  font-size: 0.88rem;
+}
