@@ -1,23 +1,177 @@
-/**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
- */
+.main {
+  flex: 1;
+}
 
-.heroBanner {
-  padding: 4rem 0;
+/* ── Hero ──────────────────────────────────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, #0049a8 0%, #0079ff 60%, #38a0ff 100%);
+  padding: 5rem 1.5rem 4.5rem;
   text-align: center;
   position: relative;
   overflow: hidden;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
-  }
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
 }
 
-.buttons {
+.heroInner {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.75rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+
+.heroSubtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  line-height: 1.65;
+}
+
+.heroCta {
   display: flex;
-  align-items: center;
+  gap: 0.75rem;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  color: #0079ff !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.ctaPrimary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none !important;
+  transition: background 0.15s;
+}
+
+.ctaSecondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Quick links grid ──────────────────────────────────────────────────────── */
+.grid {
+  background: var(--ifm-background-color);
+  padding: 4rem 1.5rem;
+}
+
+.gridInner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gridTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: var(--ifm-heading-color);
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: block;
+  padding: 1.4rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid var(--ifm-toc-border-color);
+  background: var(--ifm-background-surface-color);
+  text-decoration: none !important;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+  color: inherit !important;
+}
+
+.card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 16px rgba(0, 121, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.cardIcon {
+  font-size: 1.6rem;
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.cardTitle {
+  font-size: 0.975rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+  color: var(--ifm-heading-color);
+  font-family: var(--ifm-heading-font-family, inherit);
+}
+
+.cardDesc {
+  font-size: 0.855rem;
+  color: var(--ifm-color-secondary-darkest);
+  line-height: 1.55;
+  margin: 0;
+}
+
+[data-theme='dark'] .cardDesc {
+  color: #8b949e;
+}
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.1rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
